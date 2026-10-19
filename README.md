@@ -58,6 +58,7 @@ The recorded Netgen comparison reports that the circuits match uniquely and Tota
 
 ## Visual evidence
 - screenshots/inverter_layout.png - PNG rendered from the inverter layout using KLayout image export.
+- screenshots/drc_results.png - report-style graphic summarizing the two committed Magic DRC logs; this is not a Magic GUI screenshot.
 - A PLL screenshot is not included because the KLayout batch export failed to parse the source .mag file. The source layout has not been modified to work around that issue.
 
 ## Repository structure
