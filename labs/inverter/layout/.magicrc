@@ -1,0 +1,3 @@
+tech load $env(PDK_ROOT)/sky130A/libs.tech/magic/sky130A.tech
+source $env(PDK_ROOT)/sky130A/libs.tech/magic/sky130A.tcl
+drc euclidean on
