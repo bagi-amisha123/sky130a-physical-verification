@@ -48,13 +48,26 @@ Magic loaded `exercise_1.mag` using SKY130A and reported:
 
 This result applies only to this layout and recorded configuration. It does not establish LVS correctness or verify every SKY130A rule.
 
+## Lab 3: Digital PLL LVS Exercise 6
+
+### Source and files
+Exercise files are under labs/lvs_exercise_6/, including the layout, Verilog sources, Netgen comparison script, and recorded output. See labs/lvs_exercise_6/README.md for exercise-specific provenance and instructions.
+
+### Recorded result and limitations
+The recorded Netgen comparison reports that the circuits match uniquely and Total errors = 0. The run also emitted warnings and placeholder-cell messages for some devices/modules. Treat this as the recorded exercise result, not as warning-free, sign-off-quality LVS or proof of silicon functionality. Review the exercise README and logs before drawing broader conclusions.
+
+## Visual evidence
+- screenshots/inverter_layout.png - PNG rendered from the inverter layout using KLayout image export.
+- A PLL screenshot is not included because the KLayout batch export failed to parse the source .mag file. The source layout has not been modified to work around that issue.
+
 ## Repository structure
-- `labs/inverter/` - inverter layout, DRC script, and baseline log
-- `labs/drc_exercise_1/` - attributed reference DRC exercise and results
-- `docs/` - supporting documentation
-- `screenshots/` - visual evidence, when captured
+- labs/inverter/ - inverter layout, DRC script, and baseline log
+- labs/drc_exercise_1/ - attributed reference DRC exercise and results
+- labs/lvs_exercise_6/ - LVS exercise files, sources, script, and recorded output
+- screenshots/ - available layout visual evidence
+- docs/ - supporting documentation, if present
 
 ## Next steps
-- Capture layout and DRC screenshots.
-- Perform an LVS comparison against a suitable reference netlist before claiming LVS success.
-- Add further DRC exercises separately, with source attribution and reproducible logs.
+- Resolve the PLL layout-rendering compatibility issue without altering the original exercise source.
+- Investigate the Netgen warnings and placeholder-cell messages before treating the LVS result as sign-off quality.
+- Add further exercises with source attribution and reproducible logs.
