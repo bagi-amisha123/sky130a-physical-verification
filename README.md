@@ -79,3 +79,16 @@ The [workshop reference index](workshop_reference/README.md) and
 [attribution note](workshop_reference/ATTRIBUTION.md) provide the original
 workshop documentation and its accompanying reference images. These are
 separate from the personal execution evidence in this repository.
+
+## Verified Exercises and Evidence
+
+The table below distinguishes repository-specific evidence from workshop reference materials.
+
+| Exercise | Objective | Result / status | Evidence |
+|---|---|---|---|
+| DRC Exercise 1 | Check a SKY130A layout against design-rule constraints | See the recorded results and limitations in the exercise documentation | [Exercise README](labs/drc_exercise_1/README.md) ? [DRC results](screenshots/drc_results.png) |
+| LVS Exercise 6 | Compare layout and schematic netlists | Netgen reported a unique circuit match and zero total errors; warnings and placeholder-cell messages still require investigation | [Exercise README](labs/lvs_exercise_6/README.md) |
+| Inverter layout | Document the inverter layout | Layout image available; see the image and repository notes for context | [Layout image](screenshots/inverter_layout.png) |
+| Workshop reference materials | Provide access to original workshop examples for Labs 1?4 and OpenLane | Reference material only; not evidence of personal completion of every exercise | [Workshop index](workshop_reference/README.md) ? [Attribution](workshop_reference/ATTRIBUTION.md) |
+
+**Evidence policy:** Only exercises with supporting repository files are listed as documented work. Workshop reference images are not presented as personal execution screenshots. Results remain subject to the limitations stated in each exercise's documentation.
