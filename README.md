@@ -72,3 +72,10 @@ The recorded Netgen comparison reports that the circuits match uniquely and Tota
 - Resolve the PLL layout-rendering compatibility issue without altering the original exercise source.
 - Investigate the Netgen warnings and placeholder-cell messages before treating the LVS result as sign-off quality.
 - Add further exercises with source attribution and reproducible logs.
+
+## Workshop reference materials
+
+The [workshop reference index](workshop_reference/README.md) and
+[attribution note](workshop_reference/ATTRIBUTION.md) provide the original
+workshop documentation and its accompanying reference images. These are
+separate from the personal execution evidence in this repository.
