@@ -10,10 +10,10 @@ https://github.com/yathAg/Physical_Verification_SKY130A
 The layout is a reference workshop exercise, not an independently designed layout.
 
 ## Files
-- `layout/exercise_1.mag` ? reference layout.
-- `layout/.magicrc` ? Magic SKY130A configuration.
-- `layout/run_drc.tcl` ? commands used to run DRC.
-- `results/drc_exercise_1.log` ? captured tool output.
+- `layout/exercise_1.mag` - reference layout.
+- `layout/.magicrc` - Magic SKY130A configuration.
+- `layout/run_drc.tcl` - commands used to run DRC.
+- `results/drc_exercise_1.log` - captured tool output.
 
 ## Verification environment
 - Magic: 8.3 revision 413

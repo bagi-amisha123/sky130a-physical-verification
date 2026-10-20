@@ -1,94 +1,93 @@
 # SKY130A Physical Verification
 
 ## Overview
-This repository documents Magic-based design-rule checking (DRC) experiments using the SkyWater SKY130A PDK.
+
+This repository records physical-verification experiments using the
+SKY130A process design kit (PDK), Magic VLSI, and Netgen.
+
+The repository distinguishes tool-execution evidence from original
+circuit/layout design. Reference-derived exercise files are not claimed
+as independently designed work.
 
 ## Tools
-- Magic VLSI, version 8.3
+
+- Magic VLSI 8.3
 - SkyWater SKY130A PDK
+- Netgen LVS
 - OpenLane container environment
 
-## Lab 1: Inverter Layout
+## Exercise 1: Inverter DRC
 
-### Layout provenance
-The inverter layout is derived from a public reference repository used for this exercise. It is not presented as an independently created layout.
+**Purpose:** Run Magic design-rule checking on the inverter layout.
 
-### DRC procedure
-- Script: `labs/inverter/results/run_drc.tcl`
-- Recorded output: `labs/inverter/results/drc_baseline.log`
+- Layout: `labs/inverter/layout/inverter.mag`
+- DRC script: `labs/inverter/results/run_drc.tcl`
+- Recorded log: `labs/inverter/results/drc_baseline.log`
 
-### Recorded result
-- Magic process exit code: 0
-- Reported DRC errors: 0
+**Recorded result:** The log reports `Total DRC errors found: 0`.
 
-This result applies to the layout and tool configuration used in the recorded run. It does not establish LVS correctness, circuit functionality, or sign-off readiness.
+The inverter layout is derived from a public reference repository.
+This result applies only to the tested layout and recorded configuration;
+it does not establish circuit functionality, LVS correctness, or
+manufacturing sign-off readiness.
 
-## Lab 2: DRC Exercise 1
+## Exercise 2: DRC Exercise 1
 
-### Objective
-Explore a reference layout and the Magic DRC workflow with SKY130A.
+**Purpose:** Examine a SKY130A layout and run the Magic DRC workflow.
 
-### Source and attribution
-The layout and Magic configuration are copied from Lab 3, Exercise 1 of:
+- Layout: `labs/drc_exercise_1/layout/exercise_1.mag`
+- Magic configuration: `labs/drc_exercise_1/layout/.magicrc`
+- Script: `labs/drc_exercise_1/layout/run_drc.tcl`
+- Log: `labs/drc_exercise_1/results/drc_exercise_1.log`
+- Notes: `labs/drc_exercise_1/README.md`
+
+The layout and configuration are copied from Lab 3, Exercise 1 of
+the public reference repository:
 https://github.com/yathAg/Physical_Verification_SKY130A
 
-This is an attributed reference exercise, not an independently designed layout.
+**Recorded result:** The log reports `Total DRC errors found: 0`.
 
-### Files
-- `labs/drc_exercise_1/layout/exercise_1.mag` - reference layout
-- `labs/drc_exercise_1/layout/.magicrc` - Magic SKY130A configuration
-- `labs/drc_exercise_1/layout/run_drc.tcl` - DRC commands
-- `labs/drc_exercise_1/results/drc_exercise_1.log` - recorded output
-- `labs/drc_exercise_1/README.md` - exercise documentation
+This is a recorded result for the supplied exercise, not proof that every
+design rule or every SKY130A layout has been checked.
 
-### Recorded result
-Magic loaded `exercise_1.mag` using SKY130A and reported:
+## Exercise 3: Digital PLL LVS Exercise 6
 
-`Total DRC errors found: 0`
+**Purpose:** Compare the layout and schematic/netlist representations
+using the provided Netgen LVS flow.
 
-This result applies only to this layout and recorded configuration. It does not establish LVS correctness or verify every SKY130A rule.
+- Exercise notes: `labs/lvs_exercise_6/README.md`
+- Layout and related files: `labs/lvs_exercise_6/mag/`
+- Verilog sources: `labs/lvs_exercise_6/verilog/`
+- Comparison script: `labs/lvs_exercise_6/netgen/run_lvs.sh`
+- Recorded log: `labs/lvs_exercise_6/netgen/lvs.log`
 
-## Lab 3: Digital PLL LVS Exercise 6
+**Recorded result:** The log reports a unique circuit match and
+`Total errors = 0`. It also contains warnings and placeholder-cell
+messages that require further investigation. This should not be
+interpreted as warning-free, sign-off-quality LVS or proof of silicon
+functionality.
 
-### Source and files
-Exercise files are under labs/lvs_exercise_6/, including the layout, Verilog sources, Netgen comparison script, and recorded output. See labs/lvs_exercise_6/README.md for exercise-specific provenance and instructions.
+## Evidence
 
-### Recorded result and limitations
-The recorded Netgen comparison reports that the circuits match uniquely and Total errors = 0. The run also emitted warnings and placeholder-cell messages for some devices/modules. Treat this as the recorded exercise result, not as warning-free, sign-off-quality LVS or proof of silicon functionality. Review the exercise README and logs before drawing broader conclusions.
+- `screenshots/inverter_layout.png` - layout image exported using KLayout.
+- `screenshots/drc_results.png` - report-style summary of the recorded
+  DRC logs; it is not a screenshot of the Magic application.
 
-## Visual evidence
-- screenshots/inverter_layout.png - PNG rendered from the inverter layout using KLayout image export.
-- screenshots/drc_results.png - report-style graphic summarizing the two committed Magic DRC logs; this is not a Magic GUI screenshot.
-- A PLL screenshot is not included because the KLayout batch export failed to parse the source .mag file. The source layout has not been modified to work around that issue.
+These images are supplementary. The raw logs and scripts are the primary
+evidence of the recorded tool runs.
 
-## Repository structure
-- labs/inverter/ - inverter layout, DRC script, and baseline log
-- labs/drc_exercise_1/ - attributed reference DRC exercise and results
-- labs/lvs_exercise_6/ - LVS exercise files, sources, script, and recorded output
-- screenshots/ - available layout visual evidence
-- docs/ - supporting documentation, if present
+## Limitations and next steps
 
-## Next steps
-- Resolve the PLL layout-rendering compatibility issue without altering the original exercise source.
-- Investigate the Netgen warnings and placeholder-cell messages before treating the LVS result as sign-off quality.
-- Add further exercises with source attribution and reproducible logs.
+- Investigate Netgen warnings and placeholder-cell messages.
+- Resolve the PLL layout-rendering compatibility issue.
+- Create an independently designed layout and verify it from a documented
+  starting point.
+- Capture genuine tool screenshots and preserve reproducible commands,
+  tool versions, and raw outputs.
 
-## Workshop reference materials
+## Scope and attribution
 
-The [workshop reference index](workshop_reference/README.md) and
-[attribution note](workshop_reference/ATTRIBUTION.md) provide the original
-workshop documentation and its accompanying reference images. These are
-separate from the personal execution evidence in this repository.
-
-## Verified Exercises and Evidence
-
-The table below distinguishes repository-specific evidence from workshop reference materials.
-
-| Exercise | Objective | Result / status | Evidence |
-|---|---|---|---|
-| DRC Exercise 1 | Check a SKY130A layout against design-rule constraints | See the recorded results and limitations in the exercise documentation | [Exercise README](labs/drc_exercise_1/README.md) ? [DRC results](screenshots/drc_results.png) |
-| LVS Exercise 6 | Compare layout and schematic netlists | Netgen reported a unique circuit match and zero total errors; warnings and placeholder-cell messages still require investigation | [Exercise README](labs/lvs_exercise_6/README.md) |
-| Inverter layout | Document the inverter layout | Layout image available; see the image and repository notes for context | [Layout image](screenshots/inverter_layout.png) |
-| Workshop reference materials | Provide access to original workshop examples for Labs 1?4 and OpenLane | Reference material only; not evidence of personal completion of every exercise | [Workshop index](workshop_reference/README.md) ? [Attribution](workshop_reference/ATTRIBUTION.md) |
-
-**Evidence policy:** Only exercises with supporting repository files are listed as documented work. Workshop reference images are not presented as personal execution screenshots. Results remain subject to the limitations stated in each exercise's documentation.
+Some exercise layouts and source files are reference-derived. Their
+provenance is documented in the relevant exercise notes where available.
+The repository records verification runs and their observed outputs;
+it does not claim that every included design was created independently.
