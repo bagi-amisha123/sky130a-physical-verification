@@ -91,3 +91,22 @@ Some exercise layouts and source files are reference-derived. Their
 provenance is documented in the relevant exercise notes where available.
 The repository records verification runs and their observed outputs;
 it does not claim that every included design was created independently.
+## Latest Verification Evidence
+
+### SKY130A Design Rule Checking
+
+- **Tool:** Magic 8.3, revision 413
+- **Technology:** SKY130A, version 1.0.493
+- **Layout:** `labs/drc_exercise_1/layout/exercise_1.mag`
+- **Execution log:** `labs/drc_exercise_1/results/drc_run.log`
+- **Recorded result:** 0 DRC errors
+
+The result applies to this exercise layout and recorded run only. It does not establish full-chip signoff.
+
+### Other Exercises
+
+- Inverter DRC: `labs/inverter/results/drc_baseline.log`
+- PLL LVS: `labs/lvs_exercise_6/netgen/lvs.log`
+
+Review the LVS log alongside its documented placeholder-cell warnings and limitations.
+
